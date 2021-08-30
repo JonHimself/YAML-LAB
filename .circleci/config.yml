@@ -1,17 +1,15 @@
-orbs: 
-  node: circleci/node@2.0.2 
+orbs:
+  node: circleci/node@2.0.2
 
 version: 2.1
 
 jobs:
   one:
     steps:
-      -run: npm install
-      -run: npm run test
+      - run: npm install
+      - run: npm run test
 
-workflows: 
+workflows:
   version: 2.1
   test npm run test:
-    jobs:
-      -one
-
+    jobs: -one
