@@ -9,3 +9,8 @@ jobs:
       - node/with-cache
       - run: npm install
       - run: npm run test
+workflows:
+  version: 2.1
+  test: # This is the name of our workflow
+    jobs: # And here we tell it what jobs to run.
+      - test
