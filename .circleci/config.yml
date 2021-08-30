@@ -5,13 +5,13 @@ jobs:
   test:
     executor:
       name: name/default
-      tag: '10.4'
+      tag: "10.4"
     steps:
       - checkout
-      -node/install-packages:
+      - node/install-packages:
       - run:
           command: npm install
-      - run: 
+      - run:
           command: npm run test
 workflows:
   version: 2.1
