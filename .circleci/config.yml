@@ -4,19 +4,20 @@ orbs:
 version: 2.1
 
 jobs:
-  one:
-    docker: #it uses the docker executor
-      - image: circleci/ruby:2.4.1 #specifically, a docker iamge with ruby 2.4.1
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD #
+  build:
+    executor:
+      name: name/default
+      tag: '10.4'
     steps:
       - checkout
-      - run: npm i
-      - run: npm run test
+      - node/with-cache
+      steps:
+        - checkout
+        - run: npm install
+        - run: npm run test
 
 workflows:
   version: 2.1
   test npm run test:
     jobs:
-      - one
+      - build
